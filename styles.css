@@ -162,3 +162,39 @@ a { color: var(--accent); }
   .mh-hero h1 { font-size: 48px; }
   .mh-hero__badges { grid-template-columns: repeat(3, 1fr); }
 }
+
+.mh-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.mh-split__points {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.mh-split__points li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.mh-split__media {
+  position: relative;
+}
+
+.mh-split__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .mh-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
