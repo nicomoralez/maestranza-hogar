@@ -198,3 +198,36 @@ a { color: var(--accent); }
     gap: 64px;
   }
 }
+
+.mh-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.mh-service-card__img {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.mh-service-card__img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.mh-service-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.mh-service-card p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+@media (min-width: 700px) {
+  .mh-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
