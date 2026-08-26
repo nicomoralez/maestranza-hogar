@@ -337,3 +337,35 @@ a { color: var(--accent); }
 }
 
 .mh-quote-form button { margin-top: 8px; }
+
+.mh-footer {
+  background: var(--contrast-bg);
+  color: var(--contrast-text);
+  padding: 24px 0;
+  border-top: 1px solid rgba(247,243,236,0.1);
+}
+
+.mh-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.mh-footer__links {
+  display: flex;
+  gap: 16px;
+}
+
+.mh-footer__links a {
+  color: var(--contrast-text);
+}
+
+@media (min-width: 600px) {
+  .mh-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
