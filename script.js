@@ -25,11 +25,15 @@ if (typeof document !== 'undefined') {
       event.preventDefault();
       if (!form.reportValidity()) return;
       const data = new FormData(form);
+      // El input date entrega AAAA-MM-DD; en el mensaje va DD/MM/AAAA.
+      let fecha = data.get('fecha') || '';
+      const isoMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(fecha);
+      if (isoMatch) fecha = `${isoMatch[3]}/${isoMatch[2]}/${isoMatch[1]}`;
       const url = buildWhatsAppUrl({
         nombre: data.get('nombre') || '',
         tipoEspacio: data.get('tipoEspacio') || '',
         m2: data.get('m2') || '',
-        fecha: data.get('fecha') || '',
+        fecha: fecha,
         mensaje: data.get('mensaje') || ''
       });
       window.open(url, '_blank', 'noopener');
