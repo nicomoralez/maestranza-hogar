@@ -264,3 +264,25 @@ a { color: var(--accent); }
   .mh-gallery__item--wide img,
   .mh-gallery__item img { height: 100%; }
 }
+
+.mh-process {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.mh-process__number {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mh-process__step h3 { font-size: 16px; }
+.mh-process__step p { font-size: 14px; opacity: 0.85; }
+
+@media (min-width: 800px) {
+  .mh-process { grid-template-columns: repeat(4, 1fr); }
+}
