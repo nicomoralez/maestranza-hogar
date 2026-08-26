@@ -286,3 +286,54 @@ a { color: var(--accent); }
 @media (min-width: 800px) {
   .mh-process { grid-template-columns: repeat(4, 1fr); }
 }
+
+.mh-contact-info {
+  margin: 24px 0 0;
+}
+
+.mh-contact-info div {
+  padding: 12px 0;
+  border-top: 1px solid rgba(247,243,236,0.15);
+}
+
+.mh-contact-info dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.mh-contact-info dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+}
+
+.mh-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(247,243,236,0.04);
+  padding: 24px;
+  border: 1px solid rgba(247,243,236,0.15);
+}
+
+.mh-quote-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--contrast-text);
+}
+
+.mh-quote-form input,
+.mh-quote-form select,
+.mh-quote-form textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid rgba(247,243,236,0.25);
+  background: transparent;
+  color: var(--contrast-text);
+}
+
+.mh-quote-form button { margin-top: 8px; }

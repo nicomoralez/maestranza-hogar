@@ -16,3 +16,22 @@ function buildWhatsAppUrl(fields) {
 if (typeof module !== 'undefined') {
   module.exports = { buildWhatsAppUrl };
 }
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('mh-quote-form');
+    if (!form) return;
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const data = new FormData(form);
+      const url = buildWhatsAppUrl({
+        nombre: data.get('nombre') || '',
+        tipoEspacio: data.get('tipoEspacio') || '',
+        m2: data.get('m2') || '',
+        fecha: data.get('fecha') || '',
+        mensaje: data.get('mensaje') || ''
+      });
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+}
