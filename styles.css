@@ -6,8 +6,8 @@
   --contrast-bg: #16140F;
   --contrast-text: #F7F3EC;
   --line: #DDD4C4;
-  --font-heading: 'Fraunces', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Young Serif', Georgia, serif;
+  --font-body: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --container-width: 1140px;
   --space-section: 120px;
   --space-section-mobile: 64px;
@@ -28,9 +28,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Young Serif solo trae peso 400; declarar más forzaría negrita sintética. */
 h1, h2, h3 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.15;
   margin: 0 0 0.5em;
   text-wrap: balance;
@@ -197,6 +198,7 @@ a { color: var(--accent); }
 .mh-hero__badges strong {
   display: block;
   font-family: var(--font-heading);
+  font-weight: 400;
   font-size: 18px;
   margin-bottom: 4px;
 }
