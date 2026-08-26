@@ -23,6 +23,7 @@ if (typeof document !== 'undefined') {
     if (!form) return;
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+      if (!form.reportValidity()) return;
       const data = new FormData(form);
       const url = buildWhatsAppUrl({
         nombre: data.get('nombre') || '',
