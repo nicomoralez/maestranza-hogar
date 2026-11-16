@@ -120,17 +120,6 @@ a { color: var(--accent); }
   opacity: 0.85;
 }
 
-.mh-photo-tag {
-  display: inline-block;
-  font-size: 11px;
-  color: var(--contrast-text);
-  background: rgba(0,0,0,0.55);
-  padding: 4px 8px;
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-}
-
 .mh-hero {
   position: relative;
   background: var(--contrast-bg);
