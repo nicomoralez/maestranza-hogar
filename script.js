@@ -39,4 +39,43 @@ if (typeof document !== 'undefined') {
       window.open(url, '_blank', 'noopener');
     });
   });
+
+  // Carrusel de antes y después: sin JS igual se desliza; las flechas son un extra.
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('ad-track');
+    const controls = document.querySelector('.mh-ad__controls');
+    if (!track || !controls) return;
+    const prev = controls.querySelector('[data-ad="prev"]');
+    const next = controls.querySelector('[data-ad="next"]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function stepWidth() {
+      const slide = track.querySelector('.mh-ad__slide');
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return slide.getBoundingClientRect().width + gap;
+    }
+
+    function update() {
+      const atStart = track.scrollLeft <= 2;
+      const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+      const prevHadFocus = document.activeElement === prev;
+      const nextHadFocus = document.activeElement === next;
+      prev.disabled = atStart;
+      next.disabled = atEnd;
+      // Si el botón con foco se deshabilita, el foco pasa al otro en vez de perderse.
+      if (atStart && prevHadFocus) next.focus();
+      if (atEnd && nextHadFocus) prev.focus();
+    }
+
+    function go(direction) {
+      track.scrollBy({ left: direction * stepWidth(), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    }
+
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    controls.hidden = false;
+    update();
+  });
 }

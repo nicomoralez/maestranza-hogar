@@ -1,5 +1,6 @@
 :root {
   --bg: #F7F3EC;
+  --bg-alt: #EFE8DC;
   --text: #211D18;
   --accent: #A8582E;
   --accent-hover: #8C4623;
@@ -329,9 +330,128 @@ a { color: var(--accent); }
   .mh-services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+.mh-section--alt { background: var(--bg-alt); }
+
+/* ---------- Antes y después ---------- */
+.mh-ad__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mh-ad__head .mh-intro { margin-bottom: 0; }
+
+.mh-ad__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.mh-ad__controls[hidden] { display: none; }
+
+.mh-ad__btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.mh-ad__btn:hover:not(:disabled) {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.mh-ad__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* La pista ocupa todo el ancho pero arranca alineada con el contenedor. */
+.mh-ad__track {
+  --ad-inset: max(24px, calc((100% - var(--container-width)) / 2 + 24px));
+  list-style: none;
+  margin: 32px 0 0;
+  padding-block: 0 4px;
+  padding-inline: var(--ad-inset);
+  scroll-padding-inline: var(--ad-inset);
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.mh-ad__track::-webkit-scrollbar { display: none; }
+
+.mh-ad__track:focus-visible { outline-offset: -2px; }
+
+.mh-ad__slide {
+  flex: 0 0 min(86%, 520px);
+  scroll-snap-align: start;
+}
+
+.mh-ad__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.mh-ad__pair figure {
+  position: relative;
+  margin: 0;
+}
+
+.mh-ad__pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.mh-ad__pair figcaption {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--contrast-text);
+  background: rgba(22, 20, 15, 0.72);
+}
+
+.mh-ad__pair figure + figure figcaption { background: var(--accent); }
+
+.mh-ad__slide h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.mh-ad__slide p {
+  max-width: 46ch;
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.mh-ad__slide p span { font-weight: 600; }
+
+/* Mosaico: en celular 2 columnas (la foto ancha ocupa ambas), en escritorio 4. */
 .mh-gallery {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 150px;
   gap: 8px;
   margin-top: 32px;
 }
@@ -342,24 +462,23 @@ a { color: var(--accent); }
 
 .mh-gallery__item img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.mh-gallery__item--wide img { height: 320px; }
+.mh-gallery__item--wide {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mh-gallery__item--tall { grid-row: span 2; }
 
 @media (min-width: 700px) {
   .mh-gallery {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 180px;
   }
-  .mh-gallery__item--wide {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  .mh-gallery__item--wide img,
-  .mh-gallery__item img { height: 100%; }
 }
 
 .mh-process {
