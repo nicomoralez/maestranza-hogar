@@ -25,12 +25,14 @@
       src="img/hero-obra.jpg"
       alt=""
       aria-hidden="true">
+    <canvas class="mh-hero__dust" aria-hidden="true"></canvas>
     <header class="mh-topbar">
-      <div class="mh-container">
+      <div class="mh-container mh-topbar__inner">
         <a class="mh-brand" href="#hero">
           <img src="img/isotipo-maestranza-hogar.svg" alt="" width="44" height="44">
           <span class="mh-brand__name">Maestranza Hogar</span>
         </a>
+        <p class="mh-dust-hint" hidden>Pasá el cursor por la foto para limpiarla</p>
       </div>
     </header>
     <div class="mh-container mh-hero__content">
@@ -128,35 +130,52 @@
         </button>
       </div>
     </div>
-    <ul id="ad-track" class="mh-ad__track" tabindex="0" aria-label="Trabajos antes y después; deslizá o usá las flechas">
+    <ul id="ad-track" class="mh-ad__track" tabindex="0" aria-label="Trabajos antes y después; deslizá para ver más">
       <li class="mh-ad__slide">
-        <div class="mh-ad__pair">
-          <figure><img src="img/antes-despues/antes-rieles.jpg" alt="Antes: rieles de ventana con polvo y restos de obra" width="600" height="800" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="img/antes-despues/despues-rieles.jpg" alt="Después: los mismos rieles, limpios" width="600" height="800" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <h3>Rieles de ventana</h3>
-        <p><span>Final de obra.</span> Polvo y restos de obra acumulados en las guías, retirados a fondo.</p>
-      </li>
-      <li class="mh-ad__slide">
-        <div class="mh-ad__pair">
-          <figure><img src="img/antes-despues/antes-cocina.jpg" alt="Antes: cocina con grasa quemada y óxido en hornallas y horno" width="600" height="800" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="img/antes-despues/despues-cocina.jpg" alt="Después: la misma cocina con hornallas y horno limpios" width="600" height="800" loading="lazy"><figcaption>Después</figcaption></figure>
+        <div class="mh-ba" style="--pos: 50%">
+          <img class="mh-ba__img" src="img/antes-despues/despues-cocina.jpg" alt="Después: la misma cocina con hornallas y horno limpios" width="600" height="800" loading="lazy">
+          <div class="mh-ba__before"><img class="mh-ba__img" src="img/antes-despues/antes-cocina.jpg" alt="Antes: cocina con grasa quemada y óxido en hornallas y horno" width="600" height="800" loading="lazy"></div>
+          <span class="mh-ba__tag mh-ba__tag--before" aria-hidden="true">Antes</span>
+          <span class="mh-ba__tag mh-ba__tag--after" aria-hidden="true">Después</span>
+          <div class="mh-ba__handle" role="slider" tabindex="0" aria-label="Comparar antes y después: Cocina" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Mitad antes, mitad después">
+            <span class="mh-ba__knob"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/></svg></span>
+          </div>
         </div>
         <h3>Cocina</h3>
         <p><span>Limpieza de hogar.</span> Grasa quemada en hornallas, parrillas y horno.</p>
-      </li>
-      <li class="mh-ad__slide">
-        <div class="mh-ad__pair">
-          <figure><img src="img/antes-despues/antes-piso.jpg" alt="Antes: piso de baldosas en damero rojo y negro con manchas" width="600" height="800" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="img/antes-despues/despues-piso.jpg" alt="Después: el mismo piso limpio, con el color recuperado" width="600" height="800" loading="lazy"><figcaption>Después</figcaption></figure>
+      </li>      <li class="mh-ad__slide">
+        <div class="mh-ba" style="--pos: 50%">
+          <img class="mh-ba__img" src="img/antes-despues/despues-piso.jpg" alt="Después: el mismo piso limpio, con el color recuperado" width="600" height="800" loading="lazy">
+          <div class="mh-ba__before"><img class="mh-ba__img" src="img/antes-despues/antes-piso.jpg" alt="Antes: piso de baldosas en damero rojo y negro con manchas" width="600" height="800" loading="lazy"></div>
+          <span class="mh-ba__tag mh-ba__tag--before" aria-hidden="true">Antes</span>
+          <span class="mh-ba__tag mh-ba__tag--after" aria-hidden="true">Después</span>
+          <div class="mh-ba__handle" role="slider" tabindex="0" aria-label="Comparar antes y después: Piso de baldosas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Mitad antes, mitad después">
+            <span class="mh-ba__knob"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/></svg></span>
+          </div>
         </div>
         <h3>Piso de baldosas</h3>
         <p><span>Limpieza de hogar.</span> Manchas y suciedad incrustada; el damero recupera su color.</p>
-      </li>
-      <li class="mh-ad__slide">
-        <div class="mh-ad__pair">
-          <figure><img src="img/antes-despues/antes-griferia.jpg" alt="Antes: grifería de ducha cubierta de sarro" width="478" height="637" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="img/antes-despues/despues-griferia.jpg" alt="Después: la misma grifería sin sarro, con el cromado brillante" width="478" height="637" loading="lazy"><figcaption>Después</figcaption></figure>
+      </li>      <li class="mh-ad__slide">
+        <div class="mh-ba" style="--pos: 50%">
+          <img class="mh-ba__img" src="img/antes-despues/despues-rieles.jpg" alt="Después: los mismos rieles, limpios" width="600" height="800" loading="lazy">
+          <div class="mh-ba__before"><img class="mh-ba__img" src="img/antes-despues/antes-rieles.jpg" alt="Antes: rieles de ventana con polvo y restos de obra" width="600" height="800" loading="lazy"></div>
+          <span class="mh-ba__tag mh-ba__tag--before" aria-hidden="true">Antes</span>
+          <span class="mh-ba__tag mh-ba__tag--after" aria-hidden="true">Después</span>
+          <div class="mh-ba__handle" role="slider" tabindex="0" aria-label="Comparar antes y después: Rieles de ventana" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Mitad antes, mitad después">
+            <span class="mh-ba__knob"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/></svg></span>
+          </div>
+        </div>
+        <h3>Rieles de ventana</h3>
+        <p><span>Final de obra.</span> Polvo y restos de obra acumulados en las guías, retirados a fondo.</p>
+      </li>      <li class="mh-ad__slide">
+        <div class="mh-ba" style="--pos: 50%">
+          <img class="mh-ba__img" src="img/antes-despues/despues-griferia.jpg" alt="Después: la misma grifería sin sarro, con el cromado brillante" width="478" height="637" loading="lazy">
+          <div class="mh-ba__before"><img class="mh-ba__img" src="img/antes-despues/antes-griferia.jpg" alt="Antes: grifería de ducha cubierta de sarro" width="478" height="637" loading="lazy"></div>
+          <span class="mh-ba__tag mh-ba__tag--before" aria-hidden="true">Antes</span>
+          <span class="mh-ba__tag mh-ba__tag--after" aria-hidden="true">Después</span>
+          <div class="mh-ba__handle" role="slider" tabindex="0" aria-label="Comparar antes y después: Grifería de ducha" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Mitad antes, mitad después">
+            <span class="mh-ba__knob"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/></svg></span>
+          </div>
         </div>
         <h3>Grifería de ducha</h3>
         <p><span>Limpieza de hogar.</span> Sarro acumulado, removido hasta recuperar el brillo del cromado.</p>
